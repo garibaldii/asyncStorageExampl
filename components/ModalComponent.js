@@ -3,12 +3,12 @@ import { Modal, View, Text, Button, StyleSheet, Alert } from 'react-native';
 
 export default function ModalComponent({ setFunc, setModalVisible, modalVisible, setSuccessMessage }) {
 
-    
+
     // Função para lidar com a resposta "Sim"
     const handleYes = () => {
-        console.log("olá")
         setFunc(); // Chama a função passada como prop
         setModalVisible(false); // Fecha o modal após a resposta
+        alert(setSuccessMessage)
     };
 
     // Função para lidar com a resposta "Não"

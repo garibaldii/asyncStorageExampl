@@ -79,7 +79,7 @@ export default function StorageComponent() {
           setFunc={clearStorage} // Passa a função para limpar os campos
           setModalVisible={setModalVisible} // Controla a visibilidade do modal
           modalVisible={modalVisible}
-
+          setSuccessMessage={`Dados Excluídos com sucesso!`}
         />
 
       </View>
