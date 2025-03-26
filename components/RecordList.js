@@ -12,7 +12,7 @@ export default function StorageComponent() {
       setRecords(storedRecords ? JSON.parse(storedRecords) : []);
     };
     fetchRecords();
-  }, [records]);
+  }, []);
 
   const saveToAsyncStorage = async (quantity, productName, price) => {
     try {

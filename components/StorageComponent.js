@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { View, Alert, FlatList, Text, StyleSheet, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Product from './Product';
+import ModalComponent from './ModalComponent';
 
 export default function StorageComponent() {
   const [records, setRecords] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false); // Estado para o modal
+
+
 
   const fetchRecords = async () => {
     try {
@@ -66,7 +70,18 @@ export default function StorageComponent() {
             )}
           />
         )}
-        <Button title="Clear All Records" onPress={clearStorage} color="red" />
+        <Button
+          title="Clear All Records"
+          onPress={() => records.length > 0 && setModalVisible(true)}
+          color="red"
+        />
+        <ModalComponent
+          setFunc={clearStorage} // Passa a função para limpar os campos
+          setModalVisible={setModalVisible} // Controla a visibilidade do modal
+          modalVisible={modalVisible}
+
+        />
+
       </View>
     </View>
   );

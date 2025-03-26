@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
+import ModalComponent from './ModalComponent';
 
 export default function Product({ onSaveData }) {
   const [quantity, setQuantity] = useState('');
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
+
+  const [modalVisible, setModalVisible] = useState(false); // Estado de visibilidade do modal
 
   const handleSave = () => {
     if (quantity && productName && price) {
@@ -21,6 +24,8 @@ export default function Product({ onSaveData }) {
     setProductName('');
     setPrice('');
   };
+
+
 
   return (
     <View style={styles.container}>
@@ -60,6 +65,9 @@ export default function Product({ onSaveData }) {
         <Button title="Clear" onPress={clearFields} />
         <Button title="Save" onPress={handleSave} />
       </View>
+
+      {/* Modal Component */}
+
     </View>
   );
 }
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff3',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     padding: 25,
   },
